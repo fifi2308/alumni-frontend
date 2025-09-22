@@ -1,32 +1,42 @@
-<h2>Inscription Alumni</h2>
-<form (ngSubmit)="onSubmit()">
-  <label>Nom :</label>
-  <input type="text" [(ngModel)]="user.nom" name="nom" required>
 
-  <label>Prénom :</label>
-  <input type="text" [(ngModel)]="user.prenom" name="prenom" required>
+<div class="register-container">
+  <div class="register-card">
+    <h2>Inscription Alumni</h2>
 
-  <label>Email :</label>
-  <input type="email" [(ngModel)]="user.email" name="email" required>
+    <form (ngSubmit)="onSubmit()" class="register-form">
+      <label>Nom :</label>
+      <input type="text" [(ngModel)]="user.nom" name="nom" required>
 
-  <label>Mot de passe :</label>
-  <input type="password" [(ngModel)]="user.password" name="password" required>
+      <label>Prénom :</label>
+      <input type="text" [(ngModel)]="user.prenom" name="prenom" required>
 
-  <label>Confirmer mot de passe :</label>
-  <input type="password" [(ngModel)]="user.password_confirmation" name="password_confirmation" required>
+      <label>Email :</label>
+      <input type="email" [(ngModel)]="user.email" name="email" required>
 
-  <label>Type d’utilisateur :</label>
-  <select [(ngModel)]="user.role" name="role">
-    <option value="alumni">Alumni</option>
-    <option value="etudiant">Étudiant</option>
-    <option value="entreprise">Entreprise</option>
-    <option value="admin">Admin</option>
-  </select>
+      <label>Mot de passe :</label>
+      <input type="password" [(ngModel)]="user.password" name="password" required>
 
-  <button type="submit">S’inscrire</button>
-</form>
+      <label>Confirmer mot de passe :</label>
+      <input type="password" [(ngModel)]="user.password_confirmation" name="password_confirmation" required>
 
-<p>{{ message }}</p>
+      <label>Type d’utilisateur :</label>
+      <select [(ngModel)]="user.role" name="role" required>
+        <option value="alumni">Alumni</option>
+        <option value="etudiant">Étudiant</option>
+        <option value="entreprise">Entreprise</option>
+        <option value="admin">Admin</option>
+      </select>
 
+      <button type="submit" class="btn-submit">S’inscrire</button>
+      <button routerLink="/home" class="btn-back">← Retour à la page d'acceuil</button>
+    </form>
 
-<div *ngIf="message">{{ message }}</div>
+    <p *ngIf="message" class="message">{{ message }}</p>
+
+    <p class="login-link">
+      Déjà un compte ? 
+      <a routerLink="/login">Connectez-vous</a>
+
+    </p>
+  </div>
+</div>

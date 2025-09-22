@@ -1,0 +1,27 @@
+
+<div class="login-container-wrapper">
+  <div class="login-container">
+    <h2>Connexion</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label>Email :</label>
+        <input type="email" [(ngModel)]="credentials.email" name="email" required>
+      </div>
+      <div>
+        <label>Mot de passe :</label>
+        <input type="password" [(ngModel)]="credentials.password" name="password" required>
+      </div>
+      <button type="submit">Se connecter</button>
+    </form>
+    <p class="error">{{ message }}</p>
+    <p>
+      <a routerLink="/forget-password">Mot de passe oublié ?</a>
+    </p>
+    <p>
+      Pas encore inscrit ?
+      <a routerLink="/register" >S’inscrire</a> 
+    </p>
+     <button routerLink="/home" class="btn-back">← Retour à la page d'acceuil</button>
+  </div>   
+</div>
+

@@ -1,0 +1,148 @@
+:host {
+  display: block;
+  height: 100vh;
+  background: linear-gradient(135deg, #f0f4f8, #87CEEB);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-container-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.login-container {
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  width: 360px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+}
+
+.login-container h2 {
+  color: #87CEEB;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.login-container label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #555;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1.5px solid #87CEEB;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.login-container input:focus {
+  border-color: #1E90FF;
+  box-shadow: 0 0 8px rgba(135, 206, 235, 0.5);
+  outline: none;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 14px;
+  background-color: #87CEEB;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-container button:hover {
+  background-color: #1E90FF;
+  transform: scale(1.03);
+}
+
+.login-container .error {
+  color: #ff4d4f;
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.signup-message {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+}
+
+.signup-message em {
+  font-style: italic;
+}
+
+.signup-link {
+  color: #1E90FF;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 5px;
+  cursor: pointer; /* important pour que ce soit cliquable */
+  transition: color 0.3s ease;
+}
+
+.signup-link:hover {
+  color: #187bcd;
+  text-decoration: underline;
+}
+.forgot-password {
+  margin-top: 10px;
+  text-align: right;
+  font-size: 14px;
+}
+
+.forgot-password a {
+  color: #1E90FF;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+  color: #187bcd;
+  text-decoration: underline;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  padding: 10px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  color: #fff;
+}
+.btn-register {
+  background-color: #1E90FF;
+}
+.btn-register:hover {
+  background-color: #187bcd;
+}

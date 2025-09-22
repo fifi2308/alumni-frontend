@@ -1,0 +1,21 @@
+<div class="dashboard-container">
+  <!-- Header -->
+  <header class="dashboard-header">
+    <h2>Bienvenue {{ user?.name }} ({{ authService.getRole() }})</h2>
+    <button class="logout-btn" (click)="logout()">Se déconnecter</button>
+  </header>
+
+  <!-- Contenu principal -->
+  <div class="dashboard-box">
+    <p class="user-role">
+      Vous êtes connecté en tant que 
+      <strong>{{ authService.getRole() }}</strong>
+    </p>
+
+    <div class="dashboard-actions">
+      <button routerLink="/profile" class="btn btn-profile">Mon profil</button>
+      <button routerLink="/reset-password" class="btn btn-password">Modifier mot de passe</button>
+    </div>
+  </div>
+</div>
+

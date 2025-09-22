@@ -1,0 +1,96 @@
+/* Fond général */
+.register-container {
+  min-height: 100vh;
+  background: #87CEEB; /* même couleur de fond que login */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Carte centrale */
+.register-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+/* Titre */
+.register-card h2 {
+  color: #1E90FF;
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Formulaire */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+.register-form label {
+  font-weight: 600;
+  color: #333;
+}
+
+.register-form input,
+.register-form select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.register-form input:focus,
+.register-form select:focus {
+  border-color: #1E90FF;
+}
+
+/* Bouton inscription */
+.btn-submit {
+  margin-top: 15px;
+  padding: 12px;
+  background: #1E90FF;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.btn-submit:hover {
+  background: #187bcd;
+}
+
+/* Message retour */
+.message {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Lien vers login */
+.login-link {
+  margin-top: 20px;
+  font-size: 14px;
+  font-style: italic;
+}
+.login-link a {
+  color: #1E90FF;
+  text-decoration: none;
+  font-weight: bold;
+}
+.login-link a:hover {
+  text-decoration: underline;
+}

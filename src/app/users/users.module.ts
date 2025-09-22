@@ -1,23 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { UsersRoutingModule } from './users-routing.module';
-import { LoginComponent } from './login/login.component';
-//import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
-
 @NgModule({
   declarations: [
-    LoginComponent,
-    //RegisterComponent,
+    ForgetPasswordComponent,
+    RegisterComponent,
     ProfileComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class UsersModule { }
