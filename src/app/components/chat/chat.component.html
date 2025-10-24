@@ -1,0 +1,36 @@
+<div class="chat-container">
+  <button class="back-btn" (click)="backToInbox()">⬅ Retour</button>
+
+  <h3 *ngIf="!isNewChat">Conversation</h3>
+  <h3 *ngIf="isNewChat">Nouveau message</h3>
+
+  <!-- Nouvelle conversation -->
+  <div *ngIf="isNewChat; else chatView">
+    <label>Sélectionner un utilisateur :</label>
+    <select [(ngModel)]="receiverId">
+      <option [ngValue]="null">-- Choisir --</option>
+      <option *ngFor="let user of users" [ngValue]="user.id">{{ user.name }}</option>
+    </select>
+    <button (click)="startChat()" [disabled]="!receiverId">Commencer</button>
+  </div>
+
+  <!-- Conversation existante -->
+  <ng-template #chatView>
+    <div class="messages" *ngIf="messages.length > 0; else noMsg">
+      <div *ngFor="let msg of messages" 
+           [ngClass]="{'sent': msg.sender_id === currentUserId, 'received': msg.sender_id !== currentUserId}">
+        <p>{{ msg.contenu }}</p>
+        <small>{{ msg.created_at | date:'short' }}</small>
+      </div>
+    </div>
+
+    <ng-template #noMsg>
+      <p>Aucun message dans cette conversation</p>
+    </ng-template>
+
+    <div class="input-area">
+      <textarea [(ngModel)]="newMessage" placeholder="Écrire un message..."></textarea>
+      <button (click)="sendMessage()">Envoyer</button>
+    </div>
+  </ng-template>
+</div>

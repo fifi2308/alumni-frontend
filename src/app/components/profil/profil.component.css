@@ -1,0 +1,137 @@
+/* ===== Conteneur général ===== */
+.profil-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* ===== Titres ===== */
+.profil-container h2 {
+  text-align: center;
+  color: #4a90e2;
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+/* ===== Message de chargement ===== */
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #999;
+}
+
+/* ===== Formulaire ===== */
+.profil-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.profil-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.profil-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.profil-form textarea {
+  resize: vertical;
+  min-height: 60px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.profil-form textarea:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
+  outline: none;
+}
+
+/* ===== Boutons ===== */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #4a90e2;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #357ABD;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.btn-edit {
+  background: #f0ad4e;
+  color: #fff;
+}
+
+.btn-edit:hover {
+  background: #d9983b;
+}
+
+.btn-delete {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background: #c0392b;
+}
+
+/* ===== Carte profil ===== */
+.profil-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ===== Aucun profil ===== */
+.no-profil {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .profil-container {
+    padding: 20px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

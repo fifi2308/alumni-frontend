@@ -1,0 +1,34 @@
+<!-- Formulaire de création d'offre -->
+<div *ngIf="isPublisher()" class="offer-form card">
+  <h3>Publier une offre</h3>
+  <input [(ngModel)]="newOffer.titre" placeholder="Titre de l'offre">
+  <textarea [(ngModel)]="newOffer.description" placeholder="Description"></textarea>
+  <select [(ngModel)]="newOffer.type">
+    <option value="emploi">Emploi</option>
+    <option value="stage">Stage</option>
+  </select>
+  <button class="btn-primary" (click)="createOffer()">Publier</button>
+</div>
+
+<hr>
+
+<h3 class="section-title">Offres disponibles</h3>
+<div class="offers-list">
+  <div *ngFor="let offer of offers" class="offer-card card">
+    <h4>{{ offer.titre }} <span class="badge">{{ offer.type | titlecase }}</span></h4>
+    <p>{{ offer.description }}</p>
+    <p class="publisher-info">Publié par {{ offer.user?.name }} ({{ offer.user?.role }})</p>
+
+    <!-- Bouton postuler -->
+    <div *ngIf="canApply()" class="postuler-btn">
+      <button class="btn-secondary" (click)="openPostulerForm(offer.id)">Postuler</button>
+    </div>
+
+    <!-- Formulaire de postulation -->
+    <app-postuler
+      *ngIf="selectedOfferId === offer.id"
+      [offreId]="offer.id"
+      (closeForm)="closePostulerForm()">
+    </app-postuler>
+  </div>
+</div>

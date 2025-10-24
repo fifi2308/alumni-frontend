@@ -1,0 +1,86 @@
+<div class="inbox-container">
+
+  <!-- Liste des conversations -->
+  <div class="conversation-list">
+    <div class="header">
+      <div class="header-content">
+        <h3>Messages</h3>
+        <button class="new-message-btn" (click)="toggleNewMessageForm()">+</button>
+      </div>
+    </div>
+
+    <!-- Formulaire nouveau message -->
+    <div *ngIf="showNewMessageForm" class="new-message-section">
+      <h4>Nouveau message</h4>
+      <select [(ngModel)]="newRecipientId">
+        <option value="">-- Sélectionnez un destinataire --</option>
+        <option *ngFor="let user of allUsers" [value]="user.id">{{ user.name }}</option>
+      </select>
+      <textarea [(ngModel)]="newMessage" placeholder="Écrire un message..."></textarea>
+      <div class="new-msg-actions">
+        <button (click)="startConversation()" class="chat-input-btn">Commencer</button>
+        <button (click)="cancelNewMessage()" class="chat-input-btn cancel">Annuler</button>
+      </div>
+    </div>
+
+    <!-- Liste des conversations -->
+    <div class="conversations">
+      <ul>
+        <li *ngFor="let conv of conversations"
+            [class.active]="conv.user_id === selectedUserId"
+            (click)="openConversation(conv.user_id)"
+            class="conversation-item">
+
+          <div class="avatar-circle">
+            <span class="avatar-icon">👤</span>
+          </div>
+
+          <div class="conv-info">
+            <strong class="conv-name">{{ conv.user_name || 'Utilisateur inconnu' }}</strong>
+            <p class="conv-message">{{ conv.last_message || 'Aucun message pour le moment' }}</p>
+          </div>
+
+          <div class="conv-right">
+            <small class="time">{{ conv.last_message_time | date:'shortTime' }}</small>
+            <span *ngIf="conv.unread_count > 0" class="unread-badge">{{ conv.unread_count }}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Zone de chat -->
+  <div class="chat-area" *ngIf="selectedConversation; else placeholder">
+    <div class="chat-header">
+      <div class="avatar-circle">👤</div>
+      <div class="chat-header-info">
+        <h4>{{ selectedConversation.user_name || 'Utilisateur inconnu' }}</h4>
+        <p>En ligne</p>
+      </div>
+    </div>
+
+   <div class="messages">
+  <div *ngFor="let msg of messages"
+       class="message-bubble"
+       [ngClass]="msg.sender_id === currentUser.id ? 'sent' : 'received'">
+    <p class="message-text">{{ msg.contenu }}</p>
+    <small class="message-time">{{ msg.created_at | date:'shortTime' }}</small>
+  </div>
+</div>
+
+
+    <form (ngSubmit)="sendMessage()" class="chat-input">
+      <input type="text" [(ngModel)]="newMessage" name="message" placeholder="Écrire un message..." />
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+
+  <ng-template #placeholder>
+    <div class="placeholder">
+      <div class="placeholder-icon">💬</div>
+      <h3>Bienvenue dans votre messagerie</h3>
+      <p>Sélectionnez une conversation pour commencer</p>
+    </div>
+  </ng-template>
+
+</div>

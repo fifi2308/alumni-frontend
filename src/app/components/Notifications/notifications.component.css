@@ -1,0 +1,56 @@
+.notifications-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fefefe;
+}
+
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.notification-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  background-color: #e0e0e0;
+  transition: background-color 0.3s;
+}
+
+.notification-item.unread {
+  background-color: #ffecb3;
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.notif-date {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.notification-item button {
+  padding: 0.3rem 0.6rem;
+  border: none;
+  background-color: #1976d2;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.no-notifications {
+  text-align: center;
+  color: #888;
+  margin-top: 1rem;
+}

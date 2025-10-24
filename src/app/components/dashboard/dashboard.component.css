@@ -1,0 +1,181 @@
+   
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.dashboard-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.logout-btn {
+  padding: 10px 24px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.dashboard-box {
+  padding: 32px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.user-role {
+  font-size: 16px;
+  color: #4b5563;
+  margin: 0 0 24px 0;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+}
+
+.user-role strong {
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.dashboard-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.btn {
+  padding: 20px 24px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  text-align: left;
+}
+
+.btn .icon {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.btn-text {
+  flex: 1;
+}
+
+.btn-profile { 
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-profile:hover {
+  background: #2563eb;
+  border-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+}
+
+.btn-password { 
+  background: #f3f4f6;
+  color: #1f2937;
+  border-color: #e5e7eb;
+}
+
+.btn-password:hover {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.btn-password .icon {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.btn-messages { 
+  background: #06b6d4;
+  color: white;
+}
+
+.btn-messages:hover {
+  background: #0891b2;
+  border-color: #0e7490;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(6, 182, 212, 0.3);
+}
+
+.btn-notifications { 
+  background: #8b5cf6;
+  color: white;
+}
+
+.btn-notifications:hover {
+  background: #7c3aed;
+  border-color: #6d28d9;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(139, 92, 246, 0.3);
+}
+
+.badge {
+  background: #ef4444;
+  color: white;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 24px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .dashboard-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-box {
+    padding: 20px;
+  }
+}

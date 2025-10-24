@@ -12,8 +12,9 @@ export class AuthService {
   private currentUserSubject = new BehaviorSubject<any>(this.getUserFromStorage());
   public currentUser = this.currentUserSubject.asObservable();
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
+  // 🔹 Connexion utilisateur
   login(credentials: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, credentials).pipe(
       tap((res: any) => {
@@ -22,44 +23,45 @@ export class AuthService {
         this.currentUserSubject.next(res.user);
       })
     );
-    
   }
 
-
-
-  logout() {
+  // 🔹 Déconnexion utilisateur
+  logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     this.currentUserSubject.next(null);
     this.router.navigate(['/login']);
   }
 
-  getToken() {
+  // 🔹 Récupérer le token JWT
+  getToken(): string | null {
     return localStorage.getItem('token');
   }
 
-  getUserFromStorage() {
+  // 🔹 Récupérer l'utilisateur depuis le localStorage
+  public getUserFromStorage(): any {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;
   }
 
-  isLoggedIn() {
+  // 🔹 Vérifier si connecté
+  isLoggedIn(): boolean {
     return !!this.getToken();
   }
 
-  getRole() {
+  // 🔹 Obtenir le rôle
+  getRole(): string | null {
     const user = this.getUserFromStorage();
     return user ? user.role : null;
   }
 
-  forgetPassword(email: string) {
-  return this.http.post(`${this.apiUrl}/forget-password`, { email });
-}
+  // 🔹 Mot de passe oublié
+  forgetPassword(email: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/forget-password`, { email });
+  }
 
-
-resetPassword(token: string, data: any) {
-  return this.http.post(`${this.apiUrl}/reset-password/${token}`, data);
-}
-
-
+  // 🔹 Réinitialiser le mot de passe
+  resetPassword(token: string, data: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/reset-password/${token}`, data);
+  }
 }

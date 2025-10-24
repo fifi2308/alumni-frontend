@@ -1,0 +1,45 @@
+<!-- HTML Template -->
+<div class="dashboard-container">
+  <!-- Header -->
+  <header class="dashboard-header">
+    <h2>Bienvenue {{ user?.name }} ({{ role | titlecase }})</h2>
+    <button class="logout-btn" (click)="logout()">Se déconnecter</button>
+  </header>
+
+  <!-- Contenu principal -->
+  <div class="dashboard-box">
+    <p class="user-role">
+      Vous êtes connecté en tant que <strong>{{ role | titlecase }}</strong>
+    </p>
+
+    <div class="dashboard-actions">
+      <button routerLink="/profil" class="btn btn-profile">
+        <span class="icon">👤</span>
+        <span class="btn-text">Mon profil</span>
+      </button>
+      
+      <button routerLink="/reset-password" class="btn btn-password">
+        <span class="icon">🔑</span>
+        <span class="btn-text">Modifier mot de passe</span>
+      </button>
+      
+      <button routerLink="/inbox" class="btn btn-messages">
+        <span class="icon">📩</span>
+        <span class="btn-text">Messagerie</span>
+        <span class="badge" *ngIf="unreadMessagesCount > 0">{{ unreadMessagesCount }}</span>
+      </button>
+      
+      <button routerLink="/notifications" class="btn btn-notifications">
+        <span class="icon">🔔</span>
+        <span class="btn-text">Notifications</span>
+        <span class="badge" *ngIf="unreadNotificationsCount > 0">{{ unreadNotificationsCount }}</span>
+      </button>
+
+      <!-- Nouveau bouton Offres -->
+      <button routerLink="/offers" class="btn btn-offers">
+        <span class="icon">💼</span>
+        <span class="btn-text">Offres</span>
+      </button>
+    </div>
+  </div>
+</div>

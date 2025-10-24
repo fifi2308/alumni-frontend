@@ -10,23 +10,21 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { DashboardEtudiantComponent } from './components/dashboard-etudiant/dashboard-etudiant.component';
-import { DashboardEntrepriseComponent } from './components/dashboard-entreprise/dashboard-entreprise.component';
-import { DashboardAlumniComponent } from './components/dashboard-alumni/dashboard-alumni.component';
-import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
 import { UsersModule } from './users/users.module';
+import { ProfilComponent } from './components/profil/profil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    DashboardEtudiantComponent,
-    DashboardEntrepriseComponent,
-    DashboardAlumniComponent,
-    DashboardAdminComponent
+   
+    
+    // ⚠️ Ne PAS déclarer DashboardAlumniComponent ici
   ],
- imports: [
+  imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -34,7 +32,9 @@ import { UsersModule } from './users/users.module';
     CommonModule,
     HttpClientModule,
     RouterModule,
-    UsersModule     
+    UsersModule,
+    DashboardComponent, // ✅ On l'importe ici
+    ProfilComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

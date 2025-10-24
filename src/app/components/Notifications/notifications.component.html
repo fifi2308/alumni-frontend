@@ -1,0 +1,19 @@
+<div class="notifications-container">
+  <h2>Notifications</h2>
+
+  <div *ngIf="notifications.length > 0; else noNotifications" class="notification-list">
+    <div *ngFor="let notif of notifications" 
+         [ngClass]="{'notification-item': true, 'unread': !notif.is_read}">
+      <div class="notification-content">
+  <p>{{ notif.message }}</p>
+  <span class="notif-date">{{ notif.created_at | date:'short' }}</span>
+</div>
+
+      <button *ngIf="!notif.is_read" (click)="markAsRead(notif.id)">Marquer comme lu</button>
+    </div>
+  </div>
+
+  <ng-template #noNotifications>
+    <p class="no-notifications">Aucune notification pour le moment</p>
+  </ng-template>
+</div>

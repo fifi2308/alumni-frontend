@@ -1,0 +1,54 @@
+<div class="profil-container">
+  <h2>Mon Profil</h2>
+
+  <!-- 🕓 Message de chargement -->
+  <div *ngIf="loading" class="loading">Chargement du profil...</div>
+
+  <!-- 📝 FORMULAIRE -->
+  <form *ngIf="isEditing && !loading" (ngSubmit)="saveProfil()" class="profil-form">
+    <div class="form-group">
+      <label>Parcours académique :</label>
+      <textarea [(ngModel)]="profil.parcours_academique" name="parcours_academique" placeholder="Décris ton parcours académique"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Expériences professionnelles :</label>
+      <textarea [(ngModel)]="profil.experiences_professionnelles" name="experiences_professionnelles" placeholder="Décris tes expériences professionnelles"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Compétences :</label>
+      <textarea [(ngModel)]="profil.competences" name="competences" placeholder="Indique tes compétences clés"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Réalisations personnelles :</label>
+      <textarea [(ngModel)]="profil.realisations" name="realisations" placeholder="Mentionne tes réalisations importantes"></textarea>
+    </div>
+
+    <button type="submit" class="btn-primary">
+      {{ hasProfil ? 'Enregistrer les modifications' : 'Créer le profil' }}
+    </button>
+  </form>
+
+  <!-- 👀 AFFICHAGE DU PROFIL -->
+  <div *ngIf="!isEditing && hasProfil && !loading" class="profil-view">
+    <div class="action-buttons">
+      <button (click)="isEditing = true" class="btn-edit">✏️ Modifier</button>
+      <button (click)="deleteProfil()" class="btn-delete">🗑️ Supprimer</button>
+    </div>
+
+    <div class="profil-card">
+      <p><strong>Parcours académique :</strong> {{ profil.parcours_academique }}</p>
+      <p><strong>Expériences professionnelles :</strong> {{ profil.experiences_professionnelles }}</p>
+      <p><strong>Compétences :</strong> {{ profil.competences }}</p>
+      <p><strong>Réalisations personnelles :</strong> {{ profil.realisations }}</p>
+    </div>
+  </div>
+
+  <!-- ➕ Aucun profil existant -->
+  <div *ngIf="!hasProfil && !isEditing && !loading" class="no-profil">
+    <p>Aucun profil n’a encore été créé.</p>
+    <button (click)="isEditing = true" class="btn-primary">Créer mon profil</button>
+  </div>
+</div>

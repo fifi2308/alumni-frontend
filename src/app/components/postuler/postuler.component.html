@@ -1,0 +1,14 @@
+<div class="postuler-form card">
+  <h4>Formulaire de candidature</h4>
+
+  <input type="text" [(ngModel)]="form.nom" placeholder="Nom" required>
+  <input type="text" [(ngModel)]="form.prenom" placeholder="Prénom" required>
+  <input type="email" [(ngModel)]="form.email" placeholder="Email" required>
+  <input type="text" [(ngModel)]="form.telephone" placeholder="Téléphone" required>
+  <input type="file" (change)="onFileSelected($event)" required>
+
+  <div class="form-buttons">
+    <button class="btn-primary" (click)="submitForm()">Envoyer</button>
+    <button class="btn-secondary" (click)="cancel()" type="button">Annuler</button>
+  </div>
+</div>

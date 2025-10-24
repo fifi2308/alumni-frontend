@@ -33,6 +33,10 @@ private getHeaders() {
 getProfile(): Observable<any> {
   return this.http.get(`${this.API_URL}/profile`, this.getHeaders());
 }
+getAllUsers(): Observable<any[]> {
+  // Endpoint qui retourne tous les utilisateurs
+  return this.http.get<any[]>(`${this.API_URL}/users`, this.getHeaders());
+}
 
 updateProfile(data: any): Observable<any> {
     console.log('Token:', localStorage.getItem('token'));
