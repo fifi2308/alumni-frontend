@@ -18,13 +18,17 @@ import { PostulerComponent } from '../postuler/postuler.component';
     PostulerComponent
   ],
   templateUrl: './offers.component.html',
-  styleUrl:'./offers.component.css',
+  styleUrls: ['./offers.component.css'],
 })
 export class OffersComponent implements OnInit {
   offers: any[] = [];
+  filteredOffers: any[] = [];
   newOffer: any = { titre: '', description: '', type: 'emploi' };
   user: any;
   selectedOfferId: number | null = null;
+
+  // 🔍 barre de recherche
+  searchTerm: string = '';
 
   constructor(
     private offersService: OffersService,
@@ -38,7 +42,10 @@ export class OffersComponent implements OnInit {
 
   loadOffers() {
     this.offersService.getOffers().subscribe({
-      next: (res: any[]) => (this.offers = res),
+      next: (res: any[]) => {
+        this.offers = res;
+        this.filteredOffers = [...this.offers];
+      },
       error: () => (this.offers = []),
     });
   }
@@ -56,6 +63,7 @@ export class OffersComponent implements OnInit {
     this.offersService.createOffer(this.newOffer).subscribe({
       next: (res) => {
         this.offers.push(res);
+        this.filteredOffers = [...this.offers];
         this.newOffer = { titre: '', description: '', type: 'emploi' };
       },
       error: (err) =>
@@ -69,5 +77,15 @@ export class OffersComponent implements OnInit {
 
   closePostulerForm() {
     this.selectedOfferId = null;
+  }
+
+  // 🔍 filtrage par mot-clé (titre ou description)
+  filterOffers() {
+    const term = this.searchTerm.toLowerCase();
+    this.filteredOffers = this.offers.filter(
+      offer =>
+        offer.titre.toLowerCase().includes(term) ||
+        offer.description.toLowerCase().includes(term)
+    );
   }
 }

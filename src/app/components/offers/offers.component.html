@@ -12,9 +12,18 @@
 
 <hr>
 
+<!-- 🔍 Barre de recherche simple -->
+<input
+  type="text"
+  [(ngModel)]="searchTerm"
+  (input)="filterOffers()"
+  placeholder="Rechercher une offre..."
+  class="search-bar"
+/>
+
 <h3 class="section-title">Offres disponibles</h3>
 <div class="offers-list">
-  <div *ngFor="let offer of offers" class="offer-card card">
+  <div *ngFor="let offer of filteredOffers" class="offer-card card">
     <h4>{{ offer.titre }} <span class="badge">{{ offer.type | titlecase }}</span></h4>
     <p>{{ offer.description }}</p>
     <p class="publisher-info">Publié par {{ offer.user?.name }} ({{ offer.user?.role }})</p>
